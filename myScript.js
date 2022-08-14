@@ -4,7 +4,6 @@ function getComputerChoice() {
     return computerChoice
 }
 
-// console.log(getComputerChoice())
 
 
 function getPlayerChoice() {
@@ -12,21 +11,19 @@ function getPlayerChoice() {
     return playerChoice;
 }
 
-// console.log(getPlayerChoice());
-
 function playRound(playerSelection, computerSelection) {
     //case insensitive
     playerSelection = playerSelection.toLowerCase();
 
     if (playerSelection == "paper" && computerSelection == "rock") {
         //playerScore ++; // this code repeats over and over -> turn into a separate function! (during refactoring)
-        return(`You win! ${playerSelection} beats ${computerSelection}`)
+        return(`You Win! ${playerSelection} beats ${computerSelection}`)
     } else if (playerSelection == "scissors" && computerSelection == "paper"){
         //playerScore ++;
-        return(`You win! ${playerSelection} beats ${computerSelection}`)
+        return(`You Win! ${playerSelection} beats ${computerSelection}`)
     } else if (playerSelection == "rock" && computerSelection == "scissors"){
         //playerScore ++;
-        return(`You win! ${playerSelection} beats ${computerSelection}`)
+        return(`You Win! ${playerSelection} beats ${computerSelection}`)
     } else if (playerSelection == "rock" && computerSelection == "paper"){
         //computerScore ++;
         return(`You Lose! ${computerSelection} beats ${playerSelection}`)
@@ -41,24 +38,39 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function scoreCard(playRound) {
 
-//function game() {
-    //let playerScore = 0;
-    //let computerScore = 0;
+}
+
+
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
     
     
     
-    //playRound(getPlayerChoice(), getComputerChoice());
+    
 
 
 
-    //for (let i = 0; i < 5; i++){}
+    for (let i = 0; i < 5; i++){
+        let result = (playRound(getPlayerChoice(), getComputerChoice()));
+        console.log(result)
+        if (result.includes("Win")) {
+            playerScore ++;
+        } else if (result.includes("Lose")) {
+            computerScore ++;
+        }
+    }
+
+    console.log(playerScore);
+    console.log(computerScore);
+
+    
 
 
+}
 
 
-//}
-
-
-console.log(playRound("rOCk", "scissors"))
-//console.log(game());
+//console.log(playRound("rOCk", "scissors"))
+console.log(game());
