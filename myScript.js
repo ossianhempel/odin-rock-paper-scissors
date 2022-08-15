@@ -16,32 +16,21 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
 
     if (playerSelection == "paper" && computerSelection == "rock") {
-        //playerScore ++; // this code repeats over and over -> turn into a separate function! (during refactoring)
         return(`You Win! ${playerSelection} beats ${computerSelection}`)
     } else if (playerSelection == "scissors" && computerSelection == "paper"){
-        //playerScore ++;
         return(`You Win! ${playerSelection} beats ${computerSelection}`)
     } else if (playerSelection == "rock" && computerSelection == "scissors"){
-        //playerScore ++;
         return(`You Win! ${playerSelection} beats ${computerSelection}`)
     } else if (playerSelection == "rock" && computerSelection == "paper"){
-        //computerScore ++;
         return(`You Lose! ${computerSelection} beats ${playerSelection}`)
     } else if (playerSelection == "paper" && computerSelection == "scissors"){
-        //computerScore ++;
         return(`You Lose! ${computerSelection} beats ${playerSelection}`)
     } else if (playerSelection == "scissors" && computerSelection == "rock"){
-        //computerScore ++;
         return(`You Lose! ${computerSelection} beats ${playerSelection}`)
     } else {
         return(`You both chose ${playerSelection}, it's a draw!`)
     }
 }
-
-function scoreCard(playRound) {
-
-}
-
 
 function game() {
     let playerScore = 0;
@@ -62,15 +51,14 @@ function game() {
             computerScore ++;
         }
     }
-
-    console.log(playerScore);
-    console.log(computerScore);
-
-    
-
-
+    console.log(`Your score is ${playerScore} and the computer's score is ${computerScore}`);
+    if (playerScore > computerScore) {
+        console.log('That means, you won!');
+    } else if (playerScore < computerScore) {
+        console.log('Unfortunately, that means you have lost...versus a computer...');
+    } else {
+        console.log('That\'s a draw!')
+    }
 }
 
-
-//console.log(playRound("rOCk", "scissors"))
 console.log(game());
