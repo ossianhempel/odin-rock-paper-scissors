@@ -1,10 +1,12 @@
+const rockButton = document.querySelector('.rock');
+const paperButton = document.querySelector('.paper');
+const scissorsButton = document.querySelector('.scissors');
+
 function getComputerChoice() {
     const choices = ["rock", "paper", "scissors"];
     let computerChoice = choices[Math.floor(Math.random() * choices.length)];
     return computerChoice
 }
-
-
 
 function getPlayerChoice() {
     let playerChoice = prompt("Rock, paper, or scissors?")
@@ -32,25 +34,53 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+
+rockButton.addEventListener('click', () => {
+    const computerSelection = getComputerChoice();
+    const playerSelection = 'rock';
+    console.log(playRound(playerSelection, computerSelection));
+});
+
+paperButton.addEventListener('click', () => {
+    const computerSelection = getComputerChoice();
+    const playerSelection = 'paper';
+    console.log(playRound(playerSelection, computerSelection));
+});
+
+scissorsButton.addEventListener('click', () => {
+    const computerSelection = getComputerChoice();
+    const playerSelection = 'scissors';
+    console.log(playRound(playerSelection, computerSelection));
+});
+
+
 function game() {
     let playerScore = 0;
     let computerScore = 0;
     
-    
-    
-    
+    // for (let i = 0; i < 5; i++){
+    //     let result = (playRound(getPlayerChoice(), getComputerChoice()));
+    //     console.log(result)
+    //     if (result.includes("Win")) {
+    //         playerScore ++;
+    //     } else if (result.includes("Lose")) {
+    //         computerScore ++;
+    //     }
 
 
 
-    for (let i = 0; i < 5; i++){
-        let result = (playRound(getPlayerChoice(), getComputerChoice()));
-        console.log(result)
-        if (result.includes("Win")) {
-            playerScore ++;
-        } else if (result.includes("Lose")) {
-            computerScore ++;
-        }
+
+
+    // let result = (playRound(getPlayerChoice(), getComputerChoice()));
+    
+    if (result.includes("Win")) {
+        playerScore ++;
+    } else if (result.includes("Lose")) {
+        computerScore ++;
     }
+
+
+
     console.log(`Your score is ${playerScore} and the computer's score is ${computerScore}`);
     if (playerScore > computerScore) {
         console.log('That means, you won!');
